@@ -1,7 +1,11 @@
 import json, codecs
 from flask import Flask, request, render_template
 #from flask import request
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder='style',
+    static_folder='static'
+    )
 
 
 def update_config():
@@ -72,9 +76,10 @@ def stop_server():
     shutdown_server(update_config())
     return 'Server shutting down...'
 
+@app.route('/')
 @app.route('/home')
 def home_page():
-    return render_template("style/index.html")
+    return render_template("index.html", title="Colosseum RP Discord bot dashboard", username="MelonKami")
 
 if __name__ == "__main__":
     app.run(debug = True)

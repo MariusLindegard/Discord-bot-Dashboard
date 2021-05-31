@@ -16,6 +16,7 @@ def save_config():
 if config["flask"] == 'Not running':
     os.system('start cmd /c python server/server.py')
     config["flask"] = 'Running'
+    save_config()
 
 while True:
     with codecs.open('bot_status.json','r', encoding='utf-8-sig') as File:
