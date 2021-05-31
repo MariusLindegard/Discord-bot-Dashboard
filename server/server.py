@@ -37,7 +37,7 @@ def restart_bot(config):
     return statement
 
 def starting_bot(config):
-    if config["status"] == 'Shut down':
+    if config["status"] == 'Stopped':
         statement = 'Bot is starting up'
         config["status"] = 'Start'
         save_config(config)

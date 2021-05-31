@@ -15,7 +15,7 @@ def save_config():
     with codecs.open('bot_status.json', 'w', encoding='utf8') as File:
         json.dump(config, File, sort_keys=True, indent=4, ensure_ascii=False)
 
-config["status"] = 'Shut down'
+config["status"] = 'Stopped'
 save_config()
 
 while True:

@@ -105,14 +105,14 @@ async def bot_status():
         with codecs.open('bot_status.json', 'w', encoding='utf8') as File:
             json.dump(status, File, sort_keys=True, indent=4, ensure_ascii=False)
 
-        await bot.close()
+        await bot.logout()
     
     elif status["status"] == 'Restart':
         status["status"] = 'Start'
         with codecs.open('bot_status.json', 'w', encoding='utf8') as File:
             json.dump(status, File, sort_keys=True, indent=4, ensure_ascii=False)
 
-        await bot.close()
+        await bot.logout()
 
 @bot.event
 async def on_ready():
