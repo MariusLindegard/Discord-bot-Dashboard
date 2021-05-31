@@ -1,3 +1,4 @@
 {
-    "status": "Running"
+    "flask": "Running",
+    "status": "Stopped"
 }

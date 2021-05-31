@@ -101,14 +101,13 @@ async def bot_status():
 
     if status["status"] == 'Shut down':
         status["status"] = 'Stopped'
-        
         with codecs.open('bot_status.json', 'w', encoding='utf8') as File:
             json.dump(status, File, sort_keys=True, indent=4, ensure_ascii=False)
 
         await bot.logout()
     
     elif status["status"] == 'Restart':
-        status["status"] = 'Start'
+        status["status"] = 'Restart Server'
         with codecs.open('bot_status.json', 'w', encoding='utf8') as File:
             json.dump(status, File, sort_keys=True, indent=4, ensure_ascii=False)
 
