@@ -4,13 +4,6 @@ from discord.ext import commands, tasks
 from bot import utils
 from termcolor import colored
 
-#This need to stay on top of the code after the imports
-print(colored('----STARTING DISCORD BOT----', 'green'))
-startup_time = datetime.datetime.now()
-print(startup_time.strftime("Time: %H:%M:%S"))
-print()
-#-----------------------------------------
-
 prefix = "!"
 
 def prefix(bot, message):
@@ -112,14 +105,14 @@ async def bot_status():
         with codecs.open('bot_status.json', 'w', encoding='utf8') as File:
             json.dump(status, File, sort_keys=True, indent=4, ensure_ascii=False)
 
-        bot.close()
+        await bot.close()
     
     elif status["status"] == 'Restart':
         status["status"] = 'Start'
         with codecs.open('bot_status.json', 'w', encoding='utf8') as File:
             json.dump(status, File, sort_keys=True, indent=4, ensure_ascii=False)
 
-        bot.close()
+        await bot.close()
 
 @bot.event
 async def on_ready():
@@ -152,6 +145,7 @@ async def on_ready():
 
     utils.config.save_config()
     reload_extensions.start()
+    bot_status.start()
 
 
 @bot.command()
@@ -160,4 +154,7 @@ async def prefix(ctx):
 
 
 def run():
+    global startup_time
+    startup_time = datetime.datetime.now()
+
     bot.run(token)
