@@ -1,4 +1,3 @@
-from bot.utils import config
 import json, codecs, time
 from flask import Flask
 app = Flask(__name__)
