@@ -1,4 +1,6 @@
 config.json
+replit_starter.py
+.replit
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
