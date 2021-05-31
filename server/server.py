@@ -1,4 +1,4 @@
-import json, codecs, time
+import json, codecs
 from flask import Flask
 from flask import request
 app = Flask(__name__)
