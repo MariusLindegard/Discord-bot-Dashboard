@@ -1,6 +1,7 @@
-div {
+p {
     width: 300px;
     border: 15px black;
     padding: 50px;
     margin: 20px;
+    text-align: center;
 }
